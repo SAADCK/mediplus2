@@ -9,8 +9,10 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('ai-bot/', views.ai_bot, name='ai_bot'),
     path('appointment/', views.appointment_view, name='appointment'),
+    path('appointments/', views.booking_list, name='booking_list'),
     path('blog-single/', views.blog_single, name='blog_single'),
     path('portfolio-details/', views.portfolio_details, name='portfolio-details'),
+      # optional listing view
     
     
 ]+ static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

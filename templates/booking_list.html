@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    <h2>Booked Appointments</h2>
+    <table >
+        <tr>
+            <th>Serial Number</th>
+            <th>Name</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for appt in bookings %}
+        <tr>
+            <td>{{ appt.id }}</td>
+            <td>{{ appt.name }}</td>
+            <td>{{ appt.doctor }}</td>
+            <td>{{ appt.date }}</td>
+            <td>{{ appt.time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+        color: black;
+    }
+
+    th {
+        background-color: #1A76D1;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:#1A76D1;
+}
+</style>
+
+
+{% endblock %}
+
