@@ -1,0 +1,443 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPlus-Docters</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png">
+		
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+		<!-- Bootstrap CSS -->
+	<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<!-- Nice Select CSS -->
+		<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+		<!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+		<!-- icofont CSS -->
+        <link rel="stylesheet" href="{% static 'css/icofont.css' %}">
+		<!-- Slicknav -->
+		<link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}">
+		<!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
+		<!-- Datepicker CSS -->
+		<link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
+		<!-- Animate CSS -->
+        <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+		<!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+		
+		<!-- Medipro CSS -->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+		
+        	<!-- Header Area -->
+		<header class="header" >
+			<!-- Topbar -->
+			<div class="topbar">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-md-5 col-12">
+							<!-- Contact -->
+							<ul class="top-link">
+								<li><a href="{% url 'index' %}">About</a></li>
+								<li><a href="{% url 'doctor_list' %}">Doctors</a></li>
+								<li><a href="{% url 'contact' %}">Contact</a></li>
+								<li><a href="">FAQ</a></li>
+							</ul>
+							<!-- End Contact -->
+						</div>
+						<div class="col-lg-6 col-md-7 col-12">
+							<!-- Top Contact -->
+							<ul class="top-contact">
+								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">Mediplus@gmail.com</a></li>
+							</ul>
+							<!-- End Top Contact -->
+						</div>
+					</div>
+				</div>
+			</div>
+    </body>
+    <style>
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #1e6de4;
+            color: #000000;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #1A76D1;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .search-filter {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+        }
+        
+        /* Doctor Cards */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .doctor-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .doctor-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .doctor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .doctor-card:hover .doctor-img img {
+            transform: scale(1.05);
+        }
+        
+        .doctor-info {
+            padding: 20px;
+        }
+        
+        .doctor-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .doctor-info .specialty {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .doctor-info .details {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .doctor-info .rating {
+            color: #f39c12;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .book-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .book-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .search-filter {
+                flex-direction: column;
+            }
+            
+            .search-box, .filter {
+                width: 100%;
+            }
+            
+            .filter select {
+                width: 100%;
+            }
+            
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Our Healthcare Team</h1>
+            <p>Experienced professionals dedicated to your health</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="search-filter">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search doctors by name or specialty...">
+            </div>
+            <div class="filter">
+                <select id="specialtyFilter">
+                    <option value="">All Specialties</option>
+                    <option value="Cardiologist">Cardiology</option>
+                    <option value="Neurologist">Neurology</option>
+                    <option value="Pediatrician">Pediatrics</option>
+                    <option value="Orthopedic Surgeon">Orthopedics</option>
+                </select>
+                <select id="locationFilter">
+                    <option value="">All Locations</option>
+                    <option value="Main Hospital">Main Hospital</option>
+                    <option value="North Clinic">North Clinic</option>
+                    <option value="South Clinic">South Clinic</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="doctors-grid" id="doctorsGrid">
+            <!-- Doctor cards will be populated by JavaScript -->
+        </div>
+    </main>
+
+    <script>
+        // Doctor data
+        const doctors = [
+            {
+                id: 1,
+                name: "Dr. Sarah Johnson",
+                specialty: "Cardiologist",
+                location: "Main Hospital",
+                experience: "10 years of experience",
+                details: "Specializes in heart diseases and preventive cardiology.",
+                rating: 4.2,
+                image: "{% static 'img/dr 6.webp' %}"
+            },
+            {
+                id: 2,
+                name: "Dr. Michael Chen",
+                specialty: "Neurologist",
+                location: "North Clinic",
+                experience: "15 years of experience",
+                details: "Expert in treating neurological disorders.",
+                rating: 4.8,
+                image: "{% static 'img/dr 7.jpg' %}"
+            },
+            {
+                id: 3,
+                name: "Dr. Priya Patel",
+                specialty: "Pediatrician",
+                location: "South Clinic",
+                experience: "8 years of experience",
+                details: "Special care for children's health and development.",
+                rating: 4.5,
+                image: "{% static 'img/dr 3.avif' %}"
+            },
+            {
+                id: 4,
+                name: "Dr. Robert Williams",
+                specialty: "Orthopedic Surgeon",
+                location: "Main Hospital",
+                experience: "12 years of experience",
+                details: "Specialist in joint replacements and sports injuries.",
+                rating: 4.3,
+                image: "{% static 'img/dr 4.jpg' %}"
+            },
+            {
+                id: 5,
+                name: "Dr. Emily Wilson",
+                specialty: "Cardiologist",
+                location: "North Clinic",
+                experience: "7 years of experience",
+                details: "Focuses on non-invasive cardiac procedures.",
+                rating: 4.1,
+                image: "{% static 'img/profile-photo-attractive-family-doc-600nw-1724693776.webp' %}"
+            },
+            {
+                id: 6,
+                name: "Dr. James Rodriguez",
+                specialty: "Neurologist",
+                location: "South Clinic",
+                experience: "9 years of experience",
+                details: "Specializes in migraine and headache disorders.",
+                rating: 4.6,
+                image: "{% static 'img/dr 5.jpg' %}"
+            }
+        ];
+
+        // DOM elements
+        const doctorsGrid = document.getElementById('doctorsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const specialtyFilter = document.getElementById('specialtyFilter');
+        const locationFilter = document.getElementById('locationFilter');
+
+        // Display all doctors initially
+        displayDoctors(doctors);
+
+        // Add event listeners for filtering
+        searchInput.addEventListener('input', filterDoctors);
+        specialtyFilter.addEventListener('change', filterDoctors);
+        locationFilter.addEventListener('change', filterDoctors);
+
+        // Function to display doctors
+        function displayDoctors(doctorsToDisplay) {
+            doctorsGrid.innerHTML = '';
+            
+            if (doctorsToDisplay.length === 0) {
+                doctorsGrid.innerHTML = '<div class="no-results">No doctors found matching your criteria.</div>';
+                return;
+            }
+            
+            doctorsToDisplay.forEach(doctor => {
+                const starRating = getStarRating(doctor.rating);
+                
+                const doctorCard = document.createElement('div');
+                doctorCard.className = 'doctor-card';
+                doctorCard.innerHTML = `
+                    <div class="doctor-img">
+                        <img src="${doctor.image}" alt="${doctor.name}">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>${doctor.name}</h3>
+                        <span class="specialty">${doctor.specialty}</span>
+                        <span class="location" style="display: none;">${doctor.location}</span>
+                        <p class="details">${doctor.experience}. ${doctor.details}</p>
+                        <div class="rating">${starRating} (${doctor.rating})</div>
+                        <a href="#" class="book-btn" data-id="${doctor.id}">Book Appointment</a>
+                    </div>
+                `;
+                doctorsGrid.appendChild(doctorCard);
+            });
+
+            // Add event listeners to book buttons
+            document.querySelectorAll('.book-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const doctorId = this.getAttribute('data-id');
+                    bookAppointment(doctorId);
+                });
+            });
+        }
+
+        // Function to filter doctors based on search and filters
+        function filterDoctors() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const specialtyValue = specialtyFilter.value;
+            const locationValue = locationFilter.value;
+            
+            const filteredDoctors = doctors.filter(doctor => {
+                const matchesSearch = doctor.name.toLowerCase().includes(searchTerm) || 
+                                    doctor.specialty.toLowerCase().includes(searchTerm) ||
+                                    doctor.details.toLowerCase().includes(searchTerm);
+                
+                const matchesSpecialty = !specialtyValue || doctor.specialty === specialtyValue;
+                const matchesLocation = !locationValue || doctor.location === locationValue;
+                
+                return matchesSearch && matchesSpecialty && matchesLocation;
+            });
+            
+            displayDoctors(filteredDoctors);
+        }
+
+        // Helper function to convert rating to stars
+        function getStarRating(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+            const emptyStars = 5 - fullStars - halfStar;
+            
+            return '★'.repeat(fullStars) + 
+                   (halfStar ? '½' : '') + 
+                   '☆'.repeat(emptyStars);
+        }
+
+        // Function to handle appointment booking
+        function bookAppointment(doctorId) {
+            const doctor = doctors.find(d => d.id == doctorId);
+            if (doctor) {
+                alert(`Booking appointment with ${doctor.name}\nSpecialty: ${doctor.specialty}\nWe'll redirect you to the booking page.`);
+                // In a real app, you would redirect to a booking page or show a modal
+                 window.location.href = `{% url 'appointment' %}?id=${doctorId}`;
+            }
+        }
+    </script>
+</body>
+</html>

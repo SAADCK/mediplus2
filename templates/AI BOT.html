@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            const userImageUrl = "{% static 'img/user.png' %}";
+            const aiImageUrl = "{% static 'img/ai.png' %}";
+            const loadingImageUrl = "{% static 'img/loading.webp' %}";
+        </script>
+
+    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai Chat Bot</title>
+    <link rel="stylesheet" href="{% static 'css/AI.css' %}">
+</head>
+<body>
+    <div class="chat-container">
+<div class="ai-chat-box">
+    <img src="{% static 'img/ai.png' %}" alt="" id="aiImage" width="10%">
+    <div class="ai-chat-area">
+   Hello ! How Can I Help you Today?
+    </div>
+   
+</div>
+    </div>
+    <div class="prompt-area">
+<input type="text" id="prompt" placeholder="Message...">
+<button id="image"><img src="{% static 'img/img.svg' %}" alt="">
+<input type="file" accept="images/*" hidden></button>
+<button id="submit"><img src="{% static 'img/submit.svg' %}" alt=""></button>
+    </div>
+  <script src="{% static 'js/script1.js' %}"></script>  
+</body>
+</html>
